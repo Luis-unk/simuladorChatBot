@@ -16,6 +16,7 @@ respostas = {
     "horário": "Nosso horário de atendimento é das 08h às 18h, de segunda a sexta.",
     "sair": "Volte sempre!"
 }
+
 def encontrar_resposta(mensagem):
     mensagem = mensagem.lower()
     for chave in respostas:
