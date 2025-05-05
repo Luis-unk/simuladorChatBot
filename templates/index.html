@@ -87,14 +87,14 @@
 
   <!-- Botões de opções rápidas -->
   <div class="chat-options">
-    <button class="btn btn-outline-primary" onclick="sendQuickMessage('Consultar saldo e extrato')">
-      Consultar saldo e extrato
+    <button class="btn btn-outline-primary" onclick="sendQuickMessage('Consultar saldo')">
+      Consultar saldo
     </button>
     <button class="btn btn-outline-primary" onclick="sendQuickMessage('Informar limites de cartão de crédito')">
       Informar limites de cartão de crédito
     </button>
-    <button class="btn btn-outline-danger" onclick="sendQuickMessage('Como bloquear o cartão em caso de perda')">
-      Bloquear cartão por perda
+    <button class="btn btn-outline-danger" onclick="sendQuickMessage('Bloquear cartão.')">
+      Bloquear cartão
     </button>
   </div>
 
@@ -132,8 +132,14 @@
       const data = await response.json();
       const botReply = data.resposta;
 
-      // Adiciona resposta do bot
-      chatBox.innerHTML += `<div class="message bot"><span>${botReply}</span></div>`;
+      // Se o bot incluir um link de download, adiciona o link
+      if (data.download_link) {
+        chatBox.innerHTML += `<div class="message bot"><span>${botReply}<br><a href="${data.download_link}" target="_blank">Clique aqui para baixar seu extrato</a></span></div>`;
+      } else {
+        // Caso contrário, apenas exibe a resposta normal
+        chatBox.innerHTML += `<div class="message bot"><span>${botReply}</span></div>`;
+      }
+
       chatBox.scrollTop = chatBox.scrollHeight;
 
     } catch (err) {
