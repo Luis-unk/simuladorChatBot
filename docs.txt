@@ -1,0 +1,14 @@
+GRUPO: Augusto, Marcio, Luis
+PARA CRIAR E RODAR APLICAÇÃO:
+
+1 - CRIE O AMBIENTE VIRTUAL
+python -m venv venv
+
+2 - ATIVE O AMBIENTE VIRTUAL(WDS):  
+venv\Scripts\activate
+
+3 - INSTALE AS BIBLIOTECAS NECESSÁRIAS:
+pip install flask flask-cors
+
+4 - RODE A APLICAÇÃO:
+python app.py
